@@ -24,12 +24,12 @@ const clientService = {
     },
     async update(client) {
         const { resource } = await this.container
-            .item(client.id, client.brand.name)
+            .item(client.id)
             .replace(client);
         return resource;
     },
-    async delete(id, brandName) {
-        const result = await this.container.item(id, brandName).delete();
+    async delete(id, pk) {
+        const result = await this.container.item(id, pk).delete();
     },
 };
 
